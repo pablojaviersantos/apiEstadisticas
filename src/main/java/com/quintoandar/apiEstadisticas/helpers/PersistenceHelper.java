@@ -10,11 +10,11 @@ import java.sql.SQLException;
 
 public class PersistenceHelper {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String URL = "jdbc:postgresql://"+System.getenv("POSTGRES_HOST")+":"+System.getenv("POSTGRES_PORT")+"/"+System.getenv("POSTGRES_DB");
 
-    private static final String USER = "postgres";
+    private static final String USER = System.getenv("POSTGRES_USER");
     
-    private static final String PASSWORD = "pablo1984";
+    private static final String PASSWORD = System.getenv("POSTGRES_PASSWORD");
 
     public static Connection getConnection() {
         try {
