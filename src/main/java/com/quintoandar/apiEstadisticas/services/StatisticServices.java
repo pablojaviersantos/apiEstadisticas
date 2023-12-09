@@ -1,8 +1,6 @@
 package com.quintoandar.apiEstadisticas.services;
 
-import com.quintoandar.apiEstadisticas.helpers.Borrar;
 import com.quintoandar.apiEstadisticas.helpers.PersistenceHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -12,15 +10,8 @@ import java.util.LinkedHashMap;
 @Service
 public class StatisticServices {
 
-    @Autowired
-    private Borrar saludo;
-
     public LinkedHashMap<String, LinkedHashMap<String, Float>> obtenerEstadisticasPorEtiqueta(String label,String op) {
         LinkedHashMap<String, LinkedHashMap<String, Float>> labeledStatistics = new LinkedHashMap<>();
-
-
-
-        saludo.saludar();
 
         Connection connection = null;
         try {

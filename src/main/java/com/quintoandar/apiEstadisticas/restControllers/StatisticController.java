@@ -1,5 +1,4 @@
 package com.quintoandar.apiEstadisticas.restControllers;
-import com.quintoandar.apiEstadisticas.helpers.Borrar;
 import com.quintoandar.apiEstadisticas.services.StatisticServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,6 @@ import java.util.LinkedHashMap;
 @RequestMapping("/api/statistics")
 public class StatisticController {
     private final StatisticServices statisticServices;
-    @Autowired
-    private Borrar saludo;
 
     @Autowired
     public StatisticController(StatisticServices statisticServices){
@@ -25,8 +22,6 @@ public class StatisticController {
 
     @GetMapping("/{label}/{op}/value")
     public HashMap<String, LinkedHashMap<String, Float>> getStatistics(@PathVariable String label, @PathVariable String op) {
-        saludo.saludar();
-        //saludo.saludar("Pablo desde el Controller\n");
         return  statisticServices.obtenerEstadisticasPorEtiqueta(label,op);
     }
 }

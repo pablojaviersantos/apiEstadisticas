@@ -1,6 +1,5 @@
 package com.quintoandar.apiEstadisticas;
 
-import com.quintoandar.apiEstadisticas.helpers.Borrar;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
