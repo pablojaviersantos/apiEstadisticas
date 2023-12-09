@@ -1,5 +1,6 @@
 package com.quintoandar.apiEstadisticas.restControllers;
 import com.quintoandar.apiEstadisticas.services.StatisticServices;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,10 @@ public class StatisticController {
     }
 
     @GetMapping("/{label}/{op}/value")
-    public HashMap<String, LinkedHashMap<String, Float>> getStatistics(@PathVariable String label, @PathVariable String op) {
+    public HashMap<String, LinkedHashMap<String, Float>> getStatistics(
+            @Parameter(description = "Etiqueta a buscar", example = "<all,a,b,c>") @PathVariable String label,
+            @Parameter(description = "Operacion a buscar", example = "<all,minimo,maximo,promedio,desvStandar>") @PathVariable String op
+    ) {
         return  statisticServices.obtenerEstadisticasPorEtiqueta(label,op);
     }
 }
