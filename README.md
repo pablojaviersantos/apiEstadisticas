@@ -17,10 +17,10 @@ http://localhost:8085/api/statistics/b/maximo/value
 
        
       docker build -t api_estadisticas:v1 -f .\infra\Dockerfile .
+
 3. Para correr la imagen de docker se hace de la siguienta manera:
 
-       
-      
+
       docker run -p 8080:8080 -e POSTGRES_DB="postgres" -e POSTGRES_HOST="192.168.1.84" -e POSTGRES_PASSWORD="pablo1984" -e POSTGRES_PORT="5432" -e POSTGRES_USER="postgres"  api_estadisticas:v1
 
 4. Taggear y pushear
